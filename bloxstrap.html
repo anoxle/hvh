@@ -7,23 +7,35 @@
     <title>Page Title</title>
     <style>
         body {
-            background-color: #333; /* grey like black (not full black like dark-mode black) */
+            background-color: #333;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
         }
+        #popupMessage {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    <div id="text1">You're on the wrong page! we'll restrict you to <a href="https://anoxle.github.io/hvh/bt" target="_blank">https://anoxle.github.io/hvh/bt if did not click the linK!</a></div>
+    <div id="popupMessage" style="display:none;">You're using a Pop-up blocker! Go to the link by yourself! <a href="https://anoxle.github.io/hvh/bt">https://anoxle.github.io/hvh/bt</a></div>
 
     <script>
-        // Event(On load after 2 seconds it will pop-up https://anoxle.github.io/hvh/st)
-        window.onload = function() {
-            setTimeout(function() {
-                window.open('https://anoxle.github.io/hvh/bt', '_blank');
-            }, 2000);
+        // Check if pop-up blocker is enabled
+        var popupBlocked = false;
+        var newWindow = window.open('about:blank', 'popup_test', 'width=100,height=100');
+        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+            popupBlocked = true;
+        }
+
+        if (popupBlocked) {
+            document.getElementById('popupMessage').style.display = 'block';
         }
     </script>
 </body>
