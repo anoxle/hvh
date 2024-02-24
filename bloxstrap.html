@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloxstrap - HVH</title>
+    <link rel="icon" href="https://anoxle.github.io/hvh/logo.png" type="image/png">
+    <style>
+        body {
+            background-color: #333; /* grey like black (not full black like dark-mode black) */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards; /* Fade-in animation */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff; /* blue color for the button */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px; /* rounded corners */
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* glow effect on hover */
+            transform: scale(1.05); /* grow effect on hover */
+        }
+        button:active {
+            transform: scale(0.9); /* quick shrink on click */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        #discordButton {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            animation: fadeUp 1s forwards; /* Fade-up animation */
+        }
+
+        @keyframes fadeUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="site">
+        <div id="text1">Verify that you're not a BOT!</div>
+        <button id="button1" onclick="replaceText()">Click</button>
+        <div id="text3">Support Bloxstrap (pizzaboxer)</div>
+        <button id="buttonDis" onclick="openDiscord()">Discord</button>
+        <div id="text4">That's all we know...</div>
+    </div>
+
+    <button id="discordButton" onclick="openDiscordPopup()">Our Discord</button>
+
+    <script>
+        function replaceText() {
+            document.getElementById('text1').style.display = 'none';
+            document.getElementById('button1').style.display = 'none';
+            document.getElementById('text3').innerHTML = 'Verified! You\'ll be in there in seconds!';
+            setTimeout(function() {
+                window.open('https://github.com/pizzaboxer/bloxstrap?tab=readme-ov-file', '_blank');
+            }, 2000); // Delay of 2 seconds before opening the link
+        }
+
+        function openDiscord() {
+            window.open('https://discord.com/invite/j7vhM7r7cE', '_blank');
+        }
+
+        function openDiscordPopup() {
+            window.open('https://discord.com/invite/j7vhM7r7cE', '_blank');
+        }
+    </script>
+
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("discordButton").style.display = "block";
+          } else {
+            document.getElementById("discordButton").style.display = "none";
+          }
+        }
+    </script>
+</body>
+</html>
