@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://anoxle.github.io/hvh/logo.png" type="image/png">
-    <title>Page Title</title>
+    <title>Error - HVH</title>
     <style>
         body {
             background-color: #333;
@@ -20,11 +20,24 @@
             background-color: red;
             color: white;
             padding: 10px;
+            display: none;
+            animation: slideUp 0.5s ease-in-out forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <div id="popupMessage" style="display:none;">You're using a Pop-up blocker! Go to the link by yourself! <a href="https://anoxle.github.io/hvh/bt">https://anoxle.github.io/hvh/bt</a></div>
+    <div id="text1">You're on the wrong page! we'll restrict you to (if did not click the link!)<a href="https://anoxle.github.io/hvh/bt" target="_blank">https://anoxle.github.io/hvh/bt</a></div>
+
+    <div id="popupMessage">You're using a Pop-up blocker! Go to the link by yourself! <a href="https://anoxle.github.io/hvh/bt">https://anoxle.github.io/hvh/bt</a></div>
 
     <script>
         // Check if pop-up blocker is enabled
